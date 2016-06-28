@@ -1,0 +1,75 @@
+27 Jun 2016 10:43
+
+######### LAUNCH COMMAND:
+
+mpirun -hostfile /home/mics/meeting_6-17/hostfile -np 8 --mca btl_tcp_if_include p10p1 --bind-to core --map-by core --report-bindings /shared/baremetal/NPB3.3.1/NPB3.3-MPI/bin/mg.B.8
+
+######### JOB OUTPUT:
+
+[mics1:07209] MCW rank 0 bound to socket 0[core 0[hwt 0]]: [B/././././././.][./././././././.]
+[mics1:07209] MCW rank 1 bound to socket 0[core 1[hwt 0]]: [./B/./././././.][./././././././.]
+[mics1:07209] MCW rank 2 bound to socket 0[core 2[hwt 0]]: [././B/././././.][./././././././.]
+[mics1:07209] MCW rank 3 bound to socket 0[core 3[hwt 0]]: [./././B/./././.][./././././././.]
+[mics1:07209] MCW rank 4 bound to socket 0[core 4[hwt 0]]: [././././B/././.][./././././././.]
+[mics1:07209] MCW rank 5 bound to socket 0[core 5[hwt 0]]: [./././././B/./.][./././././././.]
+[mics1:07209] MCW rank 6 bound to socket 0[core 6[hwt 0]]: [././././././B/.][./././././././.]
+[mics1:07209] MCW rank 7 bound to socket 0[core 7[hwt 0]]: [./././././././B][./././././././.]
+
+
+ NAS Parallel Benchmarks 3.3 -- MG Benchmark
+
+ No input file. Using compiled defaults 
+ Size:  256x 256x 256  (class B)
+ Iterations:   20
+ Number of processes:      8
+
+ Initialization time:           0.331 seconds
+
+  iter    1
+  iter    5
+  iter   10
+  iter   15
+  iter   20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.9773107513381E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     2.85
+ Total processes =                        8
+ Compiled procs  =                        8
+ Mop/s total     =                  6820.77
+ Mop/s/process   =                   852.60
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              27 Jun 2016
+
+ Compile options:
+    MPIF77       = mpif77
+    FLINK        = $(MPIF77)
+    FMPI_LIB     = -L/shared/ompi-test/lib -lmpi -L/shared/omp...
+    FMPI_INC     = -I/shared/ompi-test/include
+    FFLAGS       = -O
+    FLINKFLAGS   = -O
+    RAND         = randi8
+
+
+ Please send feedbacks and/or the results of this run to:
+
+ NPB Development Team 
+ Internet: npb@nas.nasa.gov
+
+
+
+
+######### HOSTFILE (/home/mics/meeting_6-17/hostfile) CONTENTS:
+
+mics1 slots=16
+mics2 slots=16

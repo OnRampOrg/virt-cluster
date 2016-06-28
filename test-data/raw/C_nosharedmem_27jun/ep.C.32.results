@@ -1,0 +1,101 @@
+27 Jun 2016 15:47
+
+######### LAUNCH COMMAND:
+
+mpirun -hostfile /home/mics/meeting_6-17/hostfile -np 32 --mca btl_tcp_if_include p10p1 -mca btl tcp,self --bind-to core --map-by core --report-bindings /shared/baremetal/NPB3.3.1/NPB3.3-MPI/bin/ep.C.32
+
+######### JOB OUTPUT:
+
+[mics1:09627] MCW rank 10 bound to socket 1[core 10[hwt 0]]: [./././././././.][././B/././././.]
+[mics1:09627] MCW rank 11 bound to socket 1[core 11[hwt 0]]: [./././././././.][./././B/./././.]
+[mics1:09627] MCW rank 12 bound to socket 1[core 12[hwt 0]]: [./././././././.][././././B/././.]
+[mics1:09627] MCW rank 13 bound to socket 1[core 13[hwt 0]]: [./././././././.][./././././B/./.]
+[mics1:09627] MCW rank 14 bound to socket 1[core 14[hwt 0]]: [./././././././.][././././././B/.]
+[mics1:09627] MCW rank 15 bound to socket 1[core 15[hwt 0]]: [./././././././.][./././././././B]
+[mics1:09627] MCW rank 0 bound to socket 0[core 0[hwt 0]]: [B/././././././.][./././././././.]
+[mics1:09627] MCW rank 1 bound to socket 0[core 1[hwt 0]]: [./B/./././././.][./././././././.]
+[mics1:09627] MCW rank 2 bound to socket 0[core 2[hwt 0]]: [././B/././././.][./././././././.]
+[mics1:09627] MCW rank 3 bound to socket 0[core 3[hwt 0]]: [./././B/./././.][./././././././.]
+[mics1:09627] MCW rank 4 bound to socket 0[core 4[hwt 0]]: [././././B/././.][./././././././.]
+[mics1:09627] MCW rank 5 bound to socket 0[core 5[hwt 0]]: [./././././B/./.][./././././././.]
+[mics1:09627] MCW rank 6 bound to socket 0[core 6[hwt 0]]: [././././././B/.][./././././././.]
+[mics1:09627] MCW rank 7 bound to socket 0[core 7[hwt 0]]: [./././././././B][./././././././.]
+[mics1:09627] MCW rank 8 bound to socket 1[core 8[hwt 0]]: [./././././././.][B/././././././.]
+[mics1:09627] MCW rank 9 bound to socket 1[core 9[hwt 0]]: [./././././././.][./B/./././././.]
+[mics2:01690] MCW rank 16 bound to socket 0[core 0[hwt 0]]: [B/././././././.][./././././././.]
+[mics2:01690] MCW rank 17 bound to socket 0[core 1[hwt 0]]: [./B/./././././.][./././././././.]
+[mics2:01690] MCW rank 18 bound to socket 0[core 2[hwt 0]]: [././B/././././.][./././././././.]
+[mics2:01690] MCW rank 19 bound to socket 0[core 3[hwt 0]]: [./././B/./././.][./././././././.]
+[mics2:01690] MCW rank 20 bound to socket 0[core 4[hwt 0]]: [././././B/././.][./././././././.]
+[mics2:01690] MCW rank 21 bound to socket 0[core 5[hwt 0]]: [./././././B/./.][./././././././.]
+[mics2:01690] MCW rank 22 bound to socket 0[core 6[hwt 0]]: [././././././B/.][./././././././.]
+[mics2:01690] MCW rank 23 bound to socket 0[core 7[hwt 0]]: [./././././././B][./././././././.]
+[mics2:01690] MCW rank 24 bound to socket 1[core 8[hwt 0]]: [./././././././.][B/././././././.]
+[mics2:01690] MCW rank 25 bound to socket 1[core 9[hwt 0]]: [./././././././.][./B/./././././.]
+[mics2:01690] MCW rank 26 bound to socket 1[core 10[hwt 0]]: [./././././././.][././B/././././.]
+[mics2:01690] MCW rank 27 bound to socket 1[core 11[hwt 0]]: [./././././././.][./././B/./././.]
+[mics2:01690] MCW rank 28 bound to socket 1[core 12[hwt 0]]: [./././././././.][././././B/././.]
+[mics2:01690] MCW rank 29 bound to socket 1[core 13[hwt 0]]: [./././././././.][./././././B/./.]
+[mics2:01690] MCW rank 30 bound to socket 1[core 14[hwt 0]]: [./././././././.][././././././B/.]
+[mics2:01690] MCW rank 31 bound to socket 1[core 15[hwt 0]]: [./././././././.][./././././././B]
+
+ NAS Parallel Benchmarks 3.3 -- EP Benchmark
+
+ Number of random numbers generated:      8589934592
+ Number of active processes:                      32
+
+EP Benchmark Results:
+
+CPU Time =   17.4211
+N = 2^   32
+No. Gaussian Pairs =    3373275903.
+Sums =     4.764367927995415D+04   -8.084072988043667D+04
+Counts:
+  0    1572172634.
+  1    1501108549.
+  2     281805648.
+  3      17761221.
+  4        424017.
+  5          3821.
+  6            13.
+  7             0.
+  8             0.
+  9             0.
+
+
+ EP Benchmark Completed.
+ Class           =                        C
+ Size            =               8589934592
+ Iterations      =                        0
+ Time in seconds =                    17.42
+ Total processes =                       32
+ Compiled procs  =                       32
+ Mop/s total     =                   493.08
+ Mop/s/process   =                    15.41
+ Operation type  = Random numbers generated
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              27 Jun 2016
+
+ Compile options:
+    MPIF77       = mpif77
+    FLINK        = $(MPIF77)
+    FMPI_LIB     = -L/shared/ompi-test/lib -lmpi -L/shared/omp...
+    FMPI_INC     = -I/shared/ompi-test/include
+    FFLAGS       = -O
+    FLINKFLAGS   = -O
+    RAND         = randi8
+
+
+ Please send feedbacks and/or the results of this run to:
+
+ NPB Development Team 
+ Internet: npb@nas.nasa.gov
+
+
+
+
+######### HOSTFILE (/home/mics/meeting_6-17/hostfile) CONTENTS:
+
+mics1 slots=16
+mics2 slots=16

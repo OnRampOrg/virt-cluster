@@ -1,0 +1,116 @@
+27 Jun 2016 10:54
+
+######### LAUNCH COMMAND:
+
+mpirun -hostfile /home/mics/meeting_6-17/hostfile -np 25 --mca btl_tcp_if_include p10p1 --bind-to core --map-by core --report-bindings /shared/baremetal/NPB3.3.1/NPB3.3-MPI/bin/sp.B.25
+
+######### JOB OUTPUT:
+
+[mics1:07640] MCW rank 10 bound to socket 1[core 10[hwt 0]]: [./././././././.][././B/././././.]
+[mics1:07640] MCW rank 11 bound to socket 1[core 11[hwt 0]]: [./././././././.][./././B/./././.]
+[mics1:07640] MCW rank 12 bound to socket 1[core 12[hwt 0]]: [./././././././.][././././B/././.]
+[mics1:07640] MCW rank 13 bound to socket 1[core 13[hwt 0]]: [./././././././.][./././././B/./.]
+[mics1:07640] MCW rank 14 bound to socket 1[core 14[hwt 0]]: [./././././././.][././././././B/.]
+[mics1:07640] MCW rank 15 bound to socket 1[core 15[hwt 0]]: [./././././././.][./././././././B]
+[mics1:07640] MCW rank 0 bound to socket 0[core 0[hwt 0]]: [B/././././././.][./././././././.]
+[mics1:07640] MCW rank 1 bound to socket 0[core 1[hwt 0]]: [./B/./././././.][./././././././.]
+[mics1:07640] MCW rank 2 bound to socket 0[core 2[hwt 0]]: [././B/././././.][./././././././.]
+[mics1:07640] MCW rank 3 bound to socket 0[core 3[hwt 0]]: [./././B/./././.][./././././././.]
+[mics1:07640] MCW rank 4 bound to socket 0[core 4[hwt 0]]: [././././B/././.][./././././././.]
+[mics1:07640] MCW rank 5 bound to socket 0[core 5[hwt 0]]: [./././././B/./.][./././././././.]
+[mics1:07640] MCW rank 6 bound to socket 0[core 6[hwt 0]]: [././././././B/.][./././././././.]
+[mics1:07640] MCW rank 7 bound to socket 0[core 7[hwt 0]]: [./././././././B][./././././././.]
+[mics1:07640] MCW rank 8 bound to socket 1[core 8[hwt 0]]: [./././././././.][B/././././././.]
+[mics1:07640] MCW rank 9 bound to socket 1[core 9[hwt 0]]: [./././././././.][./B/./././././.]
+[mics2:03503] MCW rank 21 bound to socket 0[core 5[hwt 0]]: [./././././B/./.][./././././././.]
+[mics2:03503] MCW rank 22 bound to socket 0[core 6[hwt 0]]: [././././././B/.][./././././././.]
+[mics2:03503] MCW rank 23 bound to socket 0[core 7[hwt 0]]: [./././././././B][./././././././.]
+[mics2:03503] MCW rank 24 bound to socket 1[core 8[hwt 0]]: [./././././././.][B/././././././.]
+[mics2:03503] MCW rank 16 bound to socket 0[core 0[hwt 0]]: [B/././././././.][./././././././.]
+[mics2:03503] MCW rank 17 bound to socket 0[core 1[hwt 0]]: [./B/./././././.][./././././././.]
+[mics2:03503] MCW rank 18 bound to socket 0[core 2[hwt 0]]: [././B/././././.][./././././././.]
+[mics2:03503] MCW rank 19 bound to socket 0[core 3[hwt 0]]: [./././B/./././.][./././././././.]
+[mics2:03503] MCW rank 20 bound to socket 0[core 4[hwt 0]]: [././././B/././.][./././././././.]
+
+
+ NAS Parallel Benchmarks 3.3 -- SP Benchmark
+
+ No input file inputsp.data. Using compiled defaults
+ Size:  102x 102x 102
+ Iterations:  400    dt:   0.0010000
+ Number of active processes:    25
+
+ Time step    1
+ Time step   20
+ Time step   40
+ Time step   60
+ Time step   80
+ Time step  100
+ Time step  120
+ Time step  140
+ Time step  160
+ Time step  180
+ Time step  200
+ Time step  220
+ Time step  240
+ Time step  260
+ Time step  280
+ Time step  300
+ Time step  320
+ Time step  340
+ Time step  360
+ Time step  380
+ Time step  400
+ Verification being performed for class B
+ accuracy setting for epsilon =  0.1000000000000E-07
+ Comparison of RMS-norms of residual
+           1 0.6903293579998E+02 0.6903293579998E+02 0.5702215486701E-13
+           2 0.3095134488084E+02 0.3095134488084E+02 0.9113835511276E-13
+           3 0.4103336647017E+02 0.4103336647017E+02 0.1170576364294E-12
+           4 0.3864769009604E+02 0.3864769009604E+02 0.2904850250328E-13
+           5 0.5643482272596E+02 0.5643482272596E+02 0.5728678308085E-13
+ Comparison of RMS-norms of solution error
+           1 0.9810006190188E-02 0.9810006190188E-02 0.4845198088591E-13
+           2 0.1022827905670E-02 0.1022827905670E-02 0.3928376639860E-12
+           3 0.1720597911692E-02 0.1720597911692E-02 0.1513574787354E-12
+           4 0.1694479428231E-02 0.1694479428231E-02 0.1089014163776E-12
+           5 0.1847456263981E-01 0.1847456263981E-01 0.8187900848013E-13
+ Verification Successful
+
+
+ SP Benchmark Completed.
+ Class           =                        B
+ Size            =            102x 102x 102
+ Iterations      =                      400
+ Time in seconds =                   298.38
+ Total processes =                       25
+ Compiled procs  =                       25
+ Mop/s total     =                  1189.81
+ Mop/s/process   =                    47.59
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              27 Jun 2016
+
+ Compile options:
+    MPIF77       = mpif77
+    FLINK        = $(MPIF77)
+    FMPI_LIB     = -L/shared/ompi-test/lib -lmpi -L/shared/omp...
+    FMPI_INC     = -I/shared/ompi-test/include
+    FFLAGS       = -O
+    FLINKFLAGS   = -O
+    RAND         = (none)
+
+
+ Please send feedbacks and/or the results of this run to:
+
+ NPB Development Team 
+ Internet: npb@nas.nasa.gov
+
+
+
+
+######### HOSTFILE (/home/mics/meeting_6-17/hostfile) CONTENTS:
+
+mics1 slots=16
+mics2 slots=16

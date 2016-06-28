@@ -1,0 +1,96 @@
+27 Jun 2016 11:21
+
+######### LAUNCH COMMAND:
+
+mpirun -hostfile /home/mics/meeting_6-17/hostfile -np 9 --mca btl_tcp_if_include p10p1 -mca btl tcp,self --bind-to core --map-by core --report-bindings /shared/baremetal/NPB3.3.1/NPB3.3-MPI/bin/lu.B.9
+
+######### JOB OUTPUT:
+
+[mics1:08123] MCW rank 0 bound to socket 0[core 0[hwt 0]]: [B/././././././.][./././././././.]
+[mics1:08123] MCW rank 1 bound to socket 0[core 1[hwt 0]]: [./B/./././././.][./././././././.]
+[mics1:08123] MCW rank 2 bound to socket 0[core 2[hwt 0]]: [././B/././././.][./././././././.]
+[mics1:08123] MCW rank 3 bound to socket 0[core 3[hwt 0]]: [./././B/./././.][./././././././.]
+[mics1:08123] MCW rank 4 bound to socket 0[core 4[hwt 0]]: [././././B/././.][./././././././.]
+[mics1:08123] MCW rank 5 bound to socket 0[core 5[hwt 0]]: [./././././B/./.][./././././././.]
+[mics1:08123] MCW rank 6 bound to socket 0[core 6[hwt 0]]: [././././././B/.][./././././././.]
+[mics1:08123] MCW rank 7 bound to socket 0[core 7[hwt 0]]: [./././././././B][./././././././.]
+[mics1:08123] MCW rank 8 bound to socket 1[core 8[hwt 0]]: [./././././././.][B/././././././.]
+
+
+ NAS Parallel Benchmarks 3.3 -- LU Benchmark
+
+ Size:  102x 102x 102
+ Iterations:  250
+ Number of processes:     9
+
+ Proc_grid for nprocs =     9:    3 x    3
+ Time step    1
+ Time step   20
+ Time step   40
+ Time step   60
+ Time step   80
+ Time step  100
+ Time step  120
+ Time step  140
+ Time step  160
+ Time step  180
+ Time step  200
+ Time step  220
+ Time step  240
+ Time step  250
+
+ Verification being performed for class B
+ Accuracy setting for epsilon =  0.1000000000000E-07
+ Comparison of RMS-norms of residual
+           1   0.3553267296998E+04 0.3553267296998E+04 0.2559601138201E-14
+           2   0.2621475079531E+03 0.2621475079531E+03 0.6938801050404E-14
+           3   0.8833372185095E+03 0.8833372185095E+03 0.3346239373622E-14
+           4   0.7781277473943E+03 0.7781277473943E+03 0.7305152534550E-15
+           5   0.7308796959255E+04 0.7308796959255E+04 0.6844109759291E-14
+ Comparison of RMS-norms of solution error
+           1   0.1140117638021E+03 0.1140117638021E+03 0.2492875163280E-15
+           2   0.8109896365542E+01 0.8109896365542E+01 0.3504571223766E-14
+           3   0.2848059731770E+02 0.2848059731770E+02 0.3368021683590E-14
+           4   0.2590539456783E+02 0.2590539456783E+02 0.3291404346996E-14
+           5   0.2605490750486E+03 0.2605490750486E+03 0.1090839007013E-14
+ Comparison of surface integral
+               0.4788716270331E+02 0.4788716270331E+02 0.1632163956296E-14
+ Verification Successful
+
+
+ LU Benchmark Completed.
+ Class           =                        B
+ Size            =            102x 102x 102
+ Iterations      =                      250
+ Time in seconds =                    55.93
+ Total processes =                        9
+ Compiled procs  =                        9
+ Mop/s total     =                  8918.86
+ Mop/s/process   =                   990.98
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              27 Jun 2016
+
+ Compile options:
+    MPIF77       = mpif77
+    FLINK        = $(MPIF77)
+    FMPI_LIB     = -L/shared/ompi-test/lib -lmpi -L/shared/omp...
+    FMPI_INC     = -I/shared/ompi-test/include
+    FFLAGS       = -O
+    FLINKFLAGS   = -O
+    RAND         = (none)
+
+
+ Please send feedbacks and/or the results of this run to:
+
+ NPB Development Team 
+ Internet: npb@nas.nasa.gov
+
+
+
+
+######### HOSTFILE (/home/mics/meeting_6-17/hostfile) CONTENTS:
+
+mics1 slots=16
+mics2 slots=16

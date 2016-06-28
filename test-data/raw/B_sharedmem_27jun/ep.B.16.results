@@ -1,0 +1,85 @@
+27 Jun 2016 11:04
+
+######### LAUNCH COMMAND:
+
+mpirun -hostfile /home/mics/meeting_6-17/hostfile -np 16 --mca btl_tcp_if_include p10p1 --bind-to core --map-by core --report-bindings /shared/baremetal/NPB3.3.1/NPB3.3-MPI/bin/ep.B.16
+
+######### JOB OUTPUT:
+
+[mics1:07806] MCW rank 10 bound to socket 1[core 10[hwt 0]]: [./././././././.][././B/././././.]
+[mics1:07806] MCW rank 11 bound to socket 1[core 11[hwt 0]]: [./././././././.][./././B/./././.]
+[mics1:07806] MCW rank 12 bound to socket 1[core 12[hwt 0]]: [./././././././.][././././B/././.]
+[mics1:07806] MCW rank 13 bound to socket 1[core 13[hwt 0]]: [./././././././.][./././././B/./.]
+[mics1:07806] MCW rank 14 bound to socket 1[core 14[hwt 0]]: [./././././././.][././././././B/.]
+[mics1:07806] MCW rank 15 bound to socket 1[core 15[hwt 0]]: [./././././././.][./././././././B]
+[mics1:07806] MCW rank 0 bound to socket 0[core 0[hwt 0]]: [B/././././././.][./././././././.]
+[mics1:07806] MCW rank 1 bound to socket 0[core 1[hwt 0]]: [./B/./././././.][./././././././.]
+[mics1:07806] MCW rank 2 bound to socket 0[core 2[hwt 0]]: [././B/././././.][./././././././.]
+[mics1:07806] MCW rank 3 bound to socket 0[core 3[hwt 0]]: [./././B/./././.][./././././././.]
+[mics1:07806] MCW rank 4 bound to socket 0[core 4[hwt 0]]: [././././B/././.][./././././././.]
+[mics1:07806] MCW rank 5 bound to socket 0[core 5[hwt 0]]: [./././././B/./.][./././././././.]
+[mics1:07806] MCW rank 6 bound to socket 0[core 6[hwt 0]]: [././././././B/.][./././././././.]
+[mics1:07806] MCW rank 7 bound to socket 0[core 7[hwt 0]]: [./././././././B][./././././././.]
+[mics1:07806] MCW rank 8 bound to socket 1[core 8[hwt 0]]: [./././././././.][B/././././././.]
+[mics1:07806] MCW rank 9 bound to socket 1[core 9[hwt 0]]: [./././././././.][./B/./././././.]
+
+ NAS Parallel Benchmarks 3.3 -- EP Benchmark
+
+ Number of random numbers generated:      2147483648
+ Number of active processes:                      16
+
+EP Benchmark Results:
+
+CPU Time =    8.7032
+N = 2^   30
+No. Gaussian Pairs =     843345606.
+Sums =     4.033815542441772D+04   -2.660669192810397D+04
+Counts:
+  0     393058470.
+  1     375280898.
+  2      70460742.
+  3       4438852.
+  4        105691.
+  5           948.
+  6             5.
+  7             0.
+  8             0.
+  9             0.
+
+
+ EP Benchmark Completed.
+ Class           =                        B
+ Size            =               2147483648
+ Iterations      =                        0
+ Time in seconds =                     8.70
+ Total processes =                       16
+ Compiled procs  =                       16
+ Mop/s total     =                   246.75
+ Mop/s/process   =                    15.42
+ Operation type  = Random numbers generated
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              27 Jun 2016
+
+ Compile options:
+    MPIF77       = mpif77
+    FLINK        = $(MPIF77)
+    FMPI_LIB     = -L/shared/ompi-test/lib -lmpi -L/shared/omp...
+    FMPI_INC     = -I/shared/ompi-test/include
+    FFLAGS       = -O
+    FLINKFLAGS   = -O
+    RAND         = randi8
+
+
+ Please send feedbacks and/or the results of this run to:
+
+ NPB Development Team 
+ Internet: npb@nas.nasa.gov
+
+
+
+
+######### HOSTFILE (/home/mics/meeting_6-17/hostfile) CONTENTS:
+
+mics1 slots=16
+mics2 slots=16
