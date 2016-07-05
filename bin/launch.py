@@ -73,7 +73,7 @@ if __name__ == '__main__':
 
     parser.add_argument('CFG_FILENAME', help='Virtual cluster config filename.')
     parser.add_argument('--all', action='store_true',
-                        help='Same as: --build --net --setup-root-dir.')
+                        help='Same as: --build --net --rootdir.')
     parser.add_argument('--build', action='store_true',
                         help='Build image on all hosts prior to launching.')
     parser.add_argument('--net', action='store_true',
