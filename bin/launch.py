@@ -50,11 +50,11 @@ if __name__ == '__main__':
                 description='Launch a container-based virtual cluster.'
              )
 
-    parser.add_argument('--cfg', help='Virtual cluster config filename.')
+    parser.add_argument('CFG_FILENAME', help='Virtual cluster config filename.')
     parser.add_argument('--build', action='store_true',
                         help='Build image on all hosts prior to launching.')
     args = parser.parse_args()
-    cfg = ConfigObj(args.cfg)
+    cfg = ConfigObj(args.CFG_FILENAME)
     print cfg
 
     for host in cfg['hosts']:
