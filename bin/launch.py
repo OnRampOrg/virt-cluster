@@ -7,20 +7,24 @@ import sys
 from configobj import ConfigObj
 from subprocess import call
 
-SRC_DIR = 'src'
+SRC_DIR = os.path.abspath('src')
 IMG_DIR = os.path.join(SRC_DIR, 'img')
 
-def launch_host(hostname, username, image, build, network, nodes, node_prefix):
+def launch_host(hostname, username, image, build, network, nodes, node_prefix,
+                root_dir):
     ssh = paramiko.SSHClient()
     ssh.load_system_host_keys()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     ssh.connect(hostname, username=username)
 
     if build:
+        print 'Building image %s on host %s' % (image, hostname)
+
         build_args = ['docker', 'build', '-t', image, IMG_DIR]
-        build_command = 'echo %s' % ('"' + ' '.join(build_args) + '"')
+        build_command = ' '.join(build_args)
         stdin, stdout, stderr = ssh.exec_command(build_command)
-        print 'stdout: ', stdout.readlines()
+
+        #print 'stdout: ', stdout.readlines()
         print 'stderr: ', stderr.readlines()
 
     for node in nodes:
@@ -29,27 +33,29 @@ def launch_host(hostname, username, image, build, network, nodes, node_prefix):
         node_name = node_prefix + node
         launch_args = ['docker', 'run', '--name=%s' % node_name,
                        '--hostname=%s' % node_name, '-d',
-                       '--net=%s' % network,
+                       '--net=%s' % network, '-v', '%s:/root' % root_dir,
                        image, '/usr/sbin/sshd', '-D']
-        launch_command = 'echo %s' % ('"' + ' '.join(launch_args) + '"')
+        launch_command = ' '.join(launch_args)
         stdin, stdout, stderr = ssh.exec_command(launch_command)
-        print 'stdout: ', stdout.readlines()
+
+        #print 'stdout: ', stdout.readlines()
         print 'stderr: ', stderr.readlines()
 
     ssh.close()
 
-def launch_head_node(head_name, image, network):
+def launch_head_node(head_name, image, network, root_dir):
     args = ['docker', 'run', '--name=%s' % head_name,
             '--hostname=%s' % head_name, '-i', '-t', '--rm=true',
-            '--net=%s' % network, image, '/bin/bash', '-l']
+            '--net=%s' % network, '-v', '%s:/root' % root_dir,
+            image, '/bin/bash', '-l']
     print ' '.join(args)
-    #ret = call(args) 
+    ret = call(args) 
 
 def launch_network(net_name, subnet):
     args = ['docker', 'network', 'create', '--driver=overlay',
             '--subnet=%s' % subnet, net_name]
     print ' '.join(args)
-    #ret = call(args) 
+    ret = call(args) 
 
 def setup_root_dir(root_dir):
     ssh_dir = os.path.join(root_dir, '.ssh')
@@ -64,6 +70,15 @@ def setup_root_dir(root_dir):
         f.write('Host *\n    StrictHostKeyChecking no')
     if os.path.exists(os.path.join(ssh_dir, 'known_hosts')):
         os.path.remove(os.path.join(ssh_dir, 'known_hosts'))
+    if not os.path.exists(os.path.join(root_dir, '.bashrc')):
+        with open(os.path.join(root_dir, '.bashrc'), 'w') as f:
+            f.write('export LD_LIBRARY_PATH=/usr/local/lib\n')
+    ret_dir = os.getcwd()
+    os.chdir(root_dir)
+    call(['wget', 'www.nas.nasa.gov/assets/npb/NPB3.3.1.tar.gz'])
+    call(['tar', '-xf', 'NPB3.3.1.tar.gz'])
+    os.remove('NPB3.3.1.tar.gz')
+    os.chdir(ret_dir)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
@@ -100,8 +115,10 @@ if __name__ == '__main__':
             args.build or args.all,
             cfg['network'],
             cfg['hosts'][host]['nodes'],
-            cfg['node_name_prefix']
+            cfg['node_name_prefix'],
+            cfg['root_folder']
         )
 
-    launch_head_node(cfg['head_name'], cfg['image'], cfg['network'])
+    launch_head_node(cfg['head_name'], cfg['image'], cfg['network'],
+                     cfg['root_folder'])
 
